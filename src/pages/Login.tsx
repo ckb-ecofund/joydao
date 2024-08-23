@@ -29,7 +29,7 @@ export {}
 //   const { enqueueSnackbar } = useSnackbar();
 
   
-//   const updateJoyDaoInfo = async (
+//   const updateNervDAOInfo = async (
 //     type: "all" | "deposit" | "withdraw" | "balance"
 //   ) => {
 //     const storedCkbAddress = localStorage.getItem("ckbAddress");
@@ -89,11 +89,11 @@ export {}
 //       <h1
 //         className="title"
 //         onClick={async () => {
-//           await updateJoyDaoInfo("all");
+//           await updateNervDAOInfo("all");
 //           window.location.reload();
 //         }}
 //       >
-//         joyDAO
+//         NervDAO
 //       </h1>
 //       <div className="description">
 //         <p>Multi-chain Nervos DAO portal</p>

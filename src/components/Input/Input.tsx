@@ -22,7 +22,7 @@ const Input: React.FC<InputProps> = ({
       {leadIcon && (
         <img
           src={leadIcon}
-          alt="joyDAO"
+          alt="NervDAO"
           draggable={false}
           className="lead_icon"
         />
