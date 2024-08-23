@@ -18,7 +18,7 @@ Testnet: https://test.nervdao.com/
 
 withdraw/unlock buttons are equipped with cycle status bar wraping around the button itself.
 
-# In case you want to verify joyDao's integrity
+# In case you want to verify NervDao's integrity
 All you need to verify is that the output cells - being created - has **your lock script** and the **Nervos DAO type script** on it (in deposit and withdrawal). And that's it. As long as that's ensured, your funds will still be yours and there'll always be a way to spend it.
 
 #### deposit transaction
@@ -57,7 +57,7 @@ All you need to verify is that the output cells - being created - has **your loc
 }
 ```
 
-In the above joyDAO example transaction that you can see in joyID signing page, "lock" is short for Lock Script and "type" is short for Type Script. Take a look at the output cells. Here in this example we have 2 outputs.
+In the above NervDAO example transaction that you can see in joyID signing page, "lock" is short for Lock Script and "type" is short for Type Script. Take a look at the output cells. Here in this example we have 2 outputs.
 
 - step1: go to : https://explorer.nervos.org/tools/address-conversion
 - step2: in tab Address To Script, paste your joyId address and you'll see a data structure {codeHash, hashType, Args}
