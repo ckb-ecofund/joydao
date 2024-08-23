@@ -8,8 +8,11 @@ Thanks to the incredible support from the CKB community, especially the Common C
 
 To those who are not familiar with Nervos DAO, check https://medium.com/nervosnetwork/understanding-the-nervos-dao-and-cell-model-d68f38272c24
 
-# Demo
-https://joydao.vercel.app/
+# Deployments
+
+Mainnet: https://www.nervdao.com/
+
+Testnet: https://test.nervdao.com/
 
 <img width="770" alt="Screenshot 2024-08-11 at 13 26 49" src="https://github.com/user-attachments/assets/4cc31bd5-dd65-49fd-826b-26ab8f1725be">
 
