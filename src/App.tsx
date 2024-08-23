@@ -136,13 +136,13 @@ const App = () => {
   };
 
   /**
-   * Fetching joyDAO information. There're for modes:
+   * Fetching NervDAO information. There're for modes:
    * - deposit: update deposits
    * - withdraw: update withdraw
    * - balance: update balance
    * - all: update all 3 information
    */
-  const updateJoyDaoInfo = async (
+  const updateNervDAOInfo = async (
     type: "all" | "deposit" | "withdraw" | "balance"
   ) => {
     const storedCkbAddress = localStorage.getItem("ckbAddress");
@@ -247,7 +247,7 @@ const App = () => {
       setIsLoading(true);
       await waitForTransactionConfirmation(txid);
       setIsWaitingTxConfirm(false);
-      await updateJoyDaoInfo("all");
+      await updateNervDAOInfo("all");
       setIsLoading(false);
       setPickedCells([]);
     } catch (e: any) {
@@ -313,7 +313,7 @@ const App = () => {
       setIsWaitingTxConfirm(false);
       setTransferTo("");
       setTransferAmount("");
-      await updateJoyDaoInfo("balance");
+      await updateNervDAOInfo("balance");
       setIsLoading(false);
     } catch (e: any) {
       enqueueSnackbar("Error: " + e.message, { variant: "error" });
@@ -397,7 +397,7 @@ const App = () => {
         throw new Error("Insufficient balance!");
 
       if (parseInt(depositAmount) < DAO_MINIMUM_CAPACITY) {
-        throw new Error("Minimum joyDAO deposit is 104 CKB.");
+        throw new Error("Minimum NervDAO deposit is 104 CKB.");
       }
 
       setDaoMode(DaoFunction.depositing);
@@ -424,7 +424,7 @@ const App = () => {
       await waitForTransactionConfirmation(txid);
       setIsWaitingTxConfirm(false);
       setDepositAmount("");
-      await updateJoyDaoInfo("deposit");
+      await updateNervDAOInfo("deposit");
       setIsLoading(false);
     } catch (e: any) {
       enqueueSnackbar("Error: " + e.message, { variant: "error" });
@@ -440,7 +440,7 @@ const App = () => {
 
       if (isLoading)
         throw new Error(
-          "Please wait a moment! joyDAO is fetching data for you."
+          "Please wait a moment! NervDAO is fetching data for you."
         );
 
       setDaoMode(DaoFunction.withdrawing);
@@ -467,7 +467,7 @@ const App = () => {
       setIsLoading(true);
       await waitForTransactionConfirmation(txid);
       setIsWaitingTxConfirm(false);
-      await updateJoyDaoInfo("all");
+      await updateNervDAOInfo("all");
       setIsLoading(false);
       setPickedDaoCell(null);
     } catch (e: any) {
@@ -484,7 +484,7 @@ const App = () => {
 
       if (isLoading)
         throw new Error(
-          "Please wait a moment! joyDAO is fetching data for you."
+          "Please wait a moment! NervDAO is fetching data for you."
         );
 
       setDaoMode(DaoFunction.unlocking);
@@ -511,7 +511,7 @@ const App = () => {
       setIsLoading(true);
       await waitForTransactionConfirmation(txid);
       setIsWaitingTxConfirm(false);
-      await updateJoyDaoInfo("withdraw");
+      await updateNervDAOInfo("withdraw");
       setIsLoading(false);
       setPickedDaoCell(null);
     } catch (e: any) {
@@ -618,7 +618,7 @@ const App = () => {
     } catch (e: any) {
       if (e.message.includes("Network request failed")) {
         enqueueSnackbar(
-          "joyDAO is chasing down your data. Refresh and give it another go!",
+          "NervDAO is chasing down your data. Refresh and give it another go!",
           { variant: "info" }
         );
       } else {
@@ -666,7 +666,7 @@ const App = () => {
   }, [signer]);
 
   /**
-   * Query and settle joyDAO states variables
+   * Query and settle NervDAO states variables
    */
   React.useEffect(() => {
     if (ckbAddress) settleUserInfo(ckbAddress);
@@ -681,7 +681,7 @@ const App = () => {
   }, [setClient, ISMAINNET]);
 
   /**
-   * Estimate return based on tip epoch and current picked joyDao cell
+   * Estimate return based on tip epoch and current picked NervDAO cell
    */
   React.useEffect(() => {
     if (!tipEpoch || !pickedDaoCell) return;
@@ -706,7 +706,7 @@ const App = () => {
   const [sidebarMode, setSidebarMode] = React.useState(0);
 
   /**
-   * joyDAO front information board UI
+   * NervDAO front information board UI
    */
   const accountBalances = () => {
     return (
@@ -863,7 +863,7 @@ const App = () => {
   };
 
   /**
-   * joyDAO deposit information UI
+   * NervDAO deposit information UI
    */
   function daoDepositCircularProgressBarInfo() {
     return (
@@ -1002,7 +1002,7 @@ const App = () => {
   }
 
   /**
-   * joyDAO deposit transition messsage UI
+   * NervDAO deposit transition messsage UI
    */
   function depositTransitionMessage() {
     return (
@@ -1028,7 +1028,7 @@ const App = () => {
   }
 
   /**
-   * joyDAO information transit modal UI
+   * NervDAO information transit modal UI
    */
   function daoTransitInfoModal() {
     return (
@@ -1124,7 +1124,7 @@ const App = () => {
     try {
       if (isLoading)
         throw new Error(
-          "Please wait a moment! joyDAO is fetching data for you."
+          "Please wait a moment! NervDAO is fetching data for you."
         );
 
       if (!pickedCells.includes(cell)) {
@@ -1189,11 +1189,11 @@ const App = () => {
           <div className="guest--content">
             <img
               src={gradientLogo}
-              alt="joyDAO"
+              alt="NervDAO"
               className="logo"
               draggable={false}
             />
-            <h1 className="title">joyDAO</h1>
+            <h1 className="title">NervDAO</h1>
             <p className="sub-title">
               Universal Wallet-Interfaced Nervos DAO Portal
             </p>
@@ -1213,10 +1213,10 @@ const App = () => {
             </Button>
             <footer>
               <p>
-                <span>joyDAO © 2024</span>
+                <span>NervDAO © 2024</span>
 
                 <a
-                  href="https://github.com/tea2x/joydao"
+                  href="https://github.com/ckb-ecofund/nervos-dao"
                   target="_blank"
                   style={{ display: "inline-block" }}
                 >
@@ -1346,7 +1346,7 @@ const App = () => {
               <img
                 className="logo"
                 src={require("./assets/icons/logo.svg").default}
-                alt="joyDAO"
+                alt="NervDAO"
                 draggable={false}
               />
               <p className="address">{shortenAddress(ckbAddress)}</p>
