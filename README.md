@@ -1,145 +1,39 @@
-# Abstract
+## **What is Nerv DAO**
 
-Nervos DAO users have several options to protect their investments from CKB inflation through various software, hardware, and passkey wallets.
+Nerv DAO is an advanced implementation of the Nervos DAO, built to provide a more user-friendly experience for CKB holders. It leverages the latest wallet abstraction technologies through the Common Chain Connector (CCC) to create a seamless interface that integrates with various wallets. Nerv DAO simplifies the process of managing deposits and withdrawals, offering CKB holders a modern tool to protect their investments while earning rewards through the Nervos DAO.
 
-Neuron is the first-generation wallet on CKB and is considered the safest software wallet. However, it is a full-node wallet, making it quite heavy. PW Wallet offers MetaMask compatibility but is no longer maintained. JoyID passkey wallet stands out for its well-balanced features, making it a potential standard for protecting CKB for decades to come, although it currently does not support Nervos DAO users.
+Experience Nerv DAO(Mainnet): https://www.nervdao.com/
 
-Thanks to the incredible support from the CKB community, especially the Common Chain Connector (CCC), a special software enabling ‘wallet abstraction’ on CKB, we can now envision a universal wallet-interfaced application. This application will cater to users from MetaMask, Brave, OKX, Unisat, Fantom wallets, and even passkey wallets like JoyID. My goal is to build a convenient, versatile user interface and a secure option for CKB users to utilize Nervos DAO.
 
-To those who are not familiar with Nervos DAO, check https://medium.com/nervosnetwork/understanding-the-nervos-dao-and-cell-model-d68f38272c24
 
-# Deployments
+Nerv DAO harnesses the power of the Common Chain Connector (CCC) to enable seamless wallet interoperability and transaction management. CCC empowers Nerv DAO to support a wide range of wallets from different blockchain ecosystems, including MetaMask(and other EIP-6963- Wallet), Unisat,  OKX Wallet, as well as passkey wallets like JoyID. By utilizing CCC, Nerv DAO provides a robust and secure environment for users to interact with the Nervos DAO, ensuring ease of use, flexibility, and security across multiple platforms.
 
-Mainnet: https://www.nervdao.com/
+Experience CCC Demo: https://ckbccc-demo.vercel.app/
 
-Testnet: https://test.nervdao.com/
 
-<img width="770" alt="Screenshot 2024-08-11 at 13 26 49" src="https://github.com/user-attachments/assets/4cc31bd5-dd65-49fd-826b-26ab8f1725be">
 
-withdraw/unlock buttons are equipped with cycle status bar wraping around the button itself.
+## What is Nervos DAO
 
-# In case you want to verify NervDao's integrity
-All you need to verify is that the output cells - being created - has **your lock script** and the **Nervos DAO type script** on it (in deposit and withdrawal). And that's it. As long as that's ensured, your funds will still be yours and there'll always be a way to spend it.
+Nervos DAO is a secure and decentralized system designed to protect users’ CKBytes from inflation. By depositing CKBytes into the Nervos DAO, users help ensure the security of the Nervos Network while earning rewards. Deposits into the DAO involve locking CKBytes into a special “Nervos DAO” cell, and the rewards are calculated based on the amount locked minus a small amount required to store the cell. Nervos DAO allows users to participate in securing the network while mitigating the effects of inflation.
 
-#### deposit transaction
 
-```json
-{
-    "version": "0x0",
-    "cellDeps": ...,
-    "headerDeps": ...,
-    "inputs": ...,
-    "outputs": [
-        {
-            "capacity": "0x7c0d5ad00",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            },
-            "type": {
-                "codeHash": "0x82d76d1b75fe2fd9a27dfbaa65a039221a380d76c926f378d3f81cf3e7e13f2e",
-                "hashType": "type",
-                "args": "0x"
-            }
-        },
-        {
-            "capacity": "0x4fa0c8b5d5",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            }
-        }
-    ],
-    "outputsData": ...,
-    "witnesses": ...
-}
+
+## Open-Souce Culture of CKB
+
+The Nervos ecosystem is built on a strong foundation of open-source development and community collaboration. CKB (Common Knowledge Base) encourages developers worldwide to contribute to the evolution of its technology. The open-source culture fosters innovation, transparency, and the rapid development of tools and protocols, ensuring that Nervos continues to grow and adapt to the needs of the broader blockchain community. This vibrant open-source culture has fostered the creation of developer tools and code examples such as CCC, BTC-FS (from the Nervape Team), UTXO Global, and JoyDAO, all of which significantly enhance the CKB user and developer experience.
+
+**A special thank you goes to Tea, a dedicated community developer whose hard work and commitment were instrumental in bringing JoyDAO to life.** Building on Tea’s foundation, Nerv DAO will continue to evolve, offering even more comprehensive features to benefit the entire CKB community. 
+
+Also, if you have any suggestions for the NervDAO, please leave them in the issue or join the ckb dev chat channel and leave comments to us: https://discord.gg/nVWSNeqn
+
+
+
+## Build and run
+
+This project is fully open-sourced. If you want to build and run the project by yourself. Please follow following steps: 
+
+```shell
+npm install
+npm run build
+npm run dev
 ```
-
-In the above NervDAO example transaction that you can see in joyID signing page, "lock" is short for Lock Script and "type" is short for Type Script. Take a look at the output cells. Here in this example we have 2 outputs.
-
-- step1: go to : https://explorer.nervos.org/tools/address-conversion
-- step2: in tab Address To Script, paste your joyId address and you'll see a data structure {codeHash, hashType, Args}
-- step3: compare it to the trie in each output "lock". If matched, output cells are YOURS
-
-You'll notice that the second cell doesn't have a Type Script, that is because it's a change in a UTXO transaction and it doesn't belong to any "type" of smart contract.
-
-#### withdraw
-
-```json
-{
-    "version": ...,
-    "cellDeps": ...,
-    "inputs": ...,
-    "outputs": [
-        {
-            "capacity": "0xcec0ecb00",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            },
-            "type": {
-                "codeHash": "0x82d76d1b75fe2fd9a27dfbaa65a039221a380d76c926f378d3f81cf3e7e13f2e",
-                "hashType": "type",
-                "args": "0x"
-            }
-        },
-        {
-            "capacity": "0x57619e62d5",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            }
-        }
-    ],
-    "outputsData": ...,
-    "witnesses": ...
-}
-```
-
-The procedure to verify your ownership is similar to that of the deposit transaction.
-
-#### unlock
-
-```json
-{
-    "version": "0x0",
-    "cellDeps": ...,
-    "headerDeps": ...,
-    "inputs": [
-        {
-            "since": "0x20070800f500231e",
-            "previousOutput": {
-                "txHash": "0xc25dbce7c11f68c060a5a25bef445d4cf97cf763a90502880b13ca2378ee7536",
-                "index": "0x0"
-            }
-        }
-    ],
-    "outputs": [
-        {
-            "capacity": "0x26be340f0",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            }
-        }
-    ],
-    "outputsData": [
-        "0x"
-    ],
-    "witnesses": [
-        "0x1c00000010000000100000001c000000080000000000000000000000"
-    ]
-}
-```
-
-This is DAO unlocking transaction. It doesn't have any typescript because you're opting out of the Nervos DAO to get your CKB back. And the procedure to verify your ownership is similar to that of the deposit transaction.
-
-# Starting project
-    1. `npm install`
-    2. `npm run build`
-    3. `npm run start`
