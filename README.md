@@ -1,39 +1,64 @@
-## **What is Nerv DAO**
+## **Nerv DAO**
 
-Nerv DAO is an advanced implementation of the Nervos DAO, built to provide a more user-friendly experience for CKB holders. It leverages the latest wallet abstraction technologies through the Common Chain Connector (CCC) to create a seamless interface that integrates with various wallets. Nerv DAO simplifies the process of managing deposits and withdrawals, offering CKB holders a modern tool to protect their investments while earning rewards through the Nervos DAO.
+### **What is Nerv DAO**
+Nerv DAO is an advanced implementation of the Nervos DAO, designed to deliver a more user-friendly and accessible experience for CKB holders. By leveraging the latest wallet abstraction technologies through the Common Chain Connector (CCC), Nerv DAO provides a seamless interface that integrates with various wallets. This modern tool simplifies the process of managing deposits and withdrawals in the Nervos DAO, allowing CKB holders to protect their investments while earning rewards with ease.
 
-Experience Nerv DAO(Mainnet): https://www.nervdao.com/
+### **What Nerv DAO Has Accomplished So Far**
 
+Currently, Nerv DAO has successfully built and deployed a platform that integrates wallet abstraction with a wide range of wallets, including MetaMask, Unisat, OKX Wallet, and passkey wallets like JoyID. This functionality allows users from different blockchain ecosystems to easily interact with the Nervos DAO, making it a versatile and accessible solution for protecting CKBytes. Nerv DAO has also ensured that its interface is user-friendly and secure, making it simpler for users to manage their DAO interactions while safeguarding their investments.
 
+### **What’s Next for Nerv DAO**
 
-Nerv DAO harnesses the power of the Common Chain Connector (CCC) to enable seamless wallet interoperability and transaction management. CCC empowers Nerv DAO to support a wide range of wallets from different blockchain ecosystems, including MetaMask(and other EIP-6963- Wallet), Unisat,  OKX Wallet, as well as passkey wallets like JoyID. By utilizing CCC, Nerv DAO provides a robust and secure environment for users to interact with the Nervos DAO, ensuring ease of use, flexibility, and security across multiple platforms.
+Looking ahead, Nerv DAO is set to introduce several new features and enhancements to further benefit the CKB community:
 
-Experience CCC Demo: https://ckbccc-demo.vercel.app/
+- **UI Optimization**: Ongoing improvements to the user interface will ensure that Nerv DAO remains intuitive and accessible, even as new features are added. The goal is to provide a seamless experience for both new and experienced users.
+- **NFT Credentials**: Nerv DAO is exploring the integration of NFT credentials as a way to provide users with unique, verifiable identities and access rights within the platform. These NFT credentials could be used to represent user achievements, participation in specific events, or even governance rights within the DAO ecosystem. This feature aims to enhance user engagement and bring an additional layer of security and personalization to the Nerv DAO experience.
+- **Expanded Wallet Compatibility**: Nerv DAO will continue to expand its compatibility with more wallets across various blockchain ecosystems, ensuring that users have a broad choice of platforms to interact with the Nervos DAO.
 
+### **How to Use Nerv DAO**
 
+To use Nerv DAO, follow these simple steps:
 
-## What is Nervos DAO
+1. **Visit the Platform**: Go to [Nerv DAO Mainnet](https://www.nervdao.com/) to access the platform.
+2. **Connect Your Wallet**: Nerv DAO supports multiple wallets like MetaMask, OKX Wallet, and JoyID. Simply choose your preferred wallet and connect it to Nerv DAO.
+3. **Deposit CKBytes**: After connecting your wallet, you can deposit CKBytes into the Nervos DAO by following the on-screen instructions. The platform will guide you through the process of locking your CKBytes in a "Nervos DAO" cell.
+4. **Manage Your Deposits**: Nerv DAO allows you to manage your deposits and track your rewards within the platform. You can also withdraw your CKBytes when needed by following the provided steps.
+5. **Earn Rewards**: Once your CKBytes are locked in the Nervos DAO, you will start earning rewards based on the amount deposited.
 
-Nervos DAO is a secure and decentralized system designed to protect users’ CKBytes from inflation. By depositing CKBytes into the Nervos DAO, users help ensure the security of the Nervos Network while earning rewards. Deposits into the DAO involve locking CKBytes into a special “Nervos DAO” cell, and the rewards are calculated based on the amount locked minus a small amount required to store the cell. Nervos DAO allows users to participate in securing the network while mitigating the effects of inflation.
+### **How to Deploy Nerv DAO**
 
+If you are a developer and would like to deploy Nerv DAO yourself, follow these steps:
 
+1. **Clone the Repository**: Download the code for Nerv DAO from the repository.
+2. **Install Dependencies**: Navigate to the project directory and run the following commands to install the necessary packages:
+    
+    ```bash
+    npm install
+    
+    ```
+    
+3. **Build the Project**: After installing dependencies, build the project with:
+    
+    ```bash
+    npm run build
+    
+    ```
+    
+4. **Run the Development Server**: Finally, start the development server in development mode:
+    
+    ```bash
+    npm run dev
+    
+    ```
+    
 
-## Open-Souce Culture of CKB
+By following these steps, you can customize and deploy your own instance of Nerv DAO, making it possible to explore and contribute to its development.
 
-The Nervos ecosystem is built on a strong foundation of open-source development and community collaboration. CKB (Common Knowledge Base) encourages developers worldwide to contribute to the evolution of its technology. The open-source culture fosters innovation, transparency, and the rapid development of tools and protocols, ensuring that Nervos continues to grow and adapt to the needs of the broader blockchain community. This vibrant open-source culture has fostered the creation of developer tools and code examples such as CCC, BTC-FS (from the Nervape Team), UTXO Global, and JoyDAO, all of which significantly enhance the CKB user and developer experience.
+### **Relevant Links**
 
-**A special thank you goes to Tea, a dedicated community developer whose hard work and commitment were instrumental in bringing JoyDAO to life.** Building on Tea’s foundation, Nerv DAO will continue to evolve, offering even more comprehensive features to benefit the entire CKB community. 
+- **Nerv DAO Mainnet**: https://www.nervdao.com/
+- **Nerv DAO Testnet**: https://test.nervdao.com/
+- **CCC Demo**: https://ckbccc-demo.vercel.app/
+- **Nervos DAO Overview**: [Understanding the Nervos DAO and Cell Model](https://medium.com/nervosnetwork/understanding-the-nervos-dao-and-cell-model-d68f38272c24)
 
-Also, if you have any suggestions for the NervDAO, please leave them in the issue or join the ckb dev chat channel and leave comments to us: https://discord.gg/nVWSNeqn
-
-
-
-## Build and run
-
-This project is fully open-sourced. If you want to build and run the project by yourself. Please follow following steps: 
-
-```shell
-npm install
-npm run build
-npm run dev
-```
+If you have any feedback or suggestions for improving Nerv DAO, please share them in the issue section on our GitHub or join the CKB dev chat on Discord to connect with us: https://discord.gg/nVWSNeqn
