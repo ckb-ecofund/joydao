@@ -2,6 +2,8 @@
 
 ### **What is Nerv DAO**
 Nerv DAO is an advanced implementation of the Nervos DAO, designed to deliver a more user-friendly and accessible experience for CKB holders. By leveraging the latest wallet abstraction technologies through the Common Chain Connector (CCC), Nerv DAO provides a seamless interface that integrates with various wallets. This modern tool simplifies the process of managing deposits and withdrawals in the Nervos DAO, allowing CKB holders to protect their investments while earning rewards with ease.
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/d183853c-f557-4f1f-bd00-89732f3c1ee1">
+
 
 ### **What Nerv DAO Has Accomplished So Far**
 
