@@ -1,5 +1,5 @@
-import { Signer } from "@ckb-ccc/core";
-import { CKBTransaction } from '@joyid/ckb';
+import { ccc } from "@ckb-ccc/connector-react";
+import { CKBTransaction } from "@joyid/ckb";
 import { INDEXER_URL, FEE_RATE } from "../config";
 import { Indexer } from "@ckb-lumos/ckb-indexer";
 import { common } from "@ckb-lumos/common-scripts";
@@ -7,7 +7,10 @@ import { predefined } from "@ckb-lumos/config-manager";
 import { Address, Transaction } from "@ckb-lumos/base";
 import { generateDefaultScriptInfos } from "@ckb-ccc/lumos-patches";
 import { registerCustomLockScriptInfos } from "@ckb-lumos/common-scripts/lib/common";
-import { TransactionSkeleton, createTransactionFromSkeleton } from "@ckb-lumos/helpers";
+import {
+  TransactionSkeleton,
+  createTransactionFromSkeleton,
+} from "@ckb-lumos/helpers";
 
 const indexer = new Indexer(INDEXER_URL);
 registerCustomLockScriptInfos(generateDefaultScriptInfos());
@@ -31,18 +34,17 @@ function fixedPointFrom(val: FixedPointLike, decimals = 8): FixedPoint {
 
 // Only for non-joyid options
 export const buildTransfer = async (
-  signer:Signer,
+  signer: ccc.Signer,
   to: Address,
   amount: string
 ): Promise<CKBTransaction> => {
-  if (!signer)
-    throw new Error("Wallet disconnected. Reconnect!");
+  if (!signer) throw new Error("Wallet disconnected. Reconnect!");
 
   const prefix = await signer.client.addressPrefix;
   const fromAddresses = await signer.getAddresses();
   const configuration = prefix === "ckb" ? predefined.LINA : predefined.AGGRON4;
 
-  let txSkeleton = new TransactionSkeleton({cellProvider: indexer});
+  let txSkeleton = new TransactionSkeleton({ cellProvider: indexer });
   txSkeleton = await common.transfer(
     txSkeleton,
     fromAddresses,
@@ -52,7 +54,7 @@ export const buildTransfer = async (
     undefined,
     {
       config: configuration,
-    },
+    }
   );
 
   txSkeleton = await common.payFeeByFeeRate(
@@ -62,9 +64,9 @@ export const buildTransfer = async (
     undefined,
     {
       config: configuration,
-    },
+    }
   );
 
   const transferTx: Transaction = createTransactionFromSkeleton(txSkeleton);
   return transferTx as CKBTransaction;
-}
+};

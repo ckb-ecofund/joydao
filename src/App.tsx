@@ -1,5 +1,4 @@
 import { ccc } from "@ckb-ccc/connector-react";
-import { ClientPublicMainnet, ClientPublicTestnet } from "@ckb-ccc/core";
 import { blockchain, utils } from "@ckb-lumos/base";
 import { Config, initializeConfig } from "@ckb-lumos/config-manager";
 import { CKBTransaction } from "@joyid/ckb";
@@ -34,7 +33,7 @@ import {
   buildWithdrawTransaction,
   buildUnlockTransaction,
   batchDaoCells,
-} from "joy-dao";
+} from "./dao";
 
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
@@ -326,6 +325,7 @@ const App = () => {
    * Built deposit transaction for tx submission in the next step.
    */
   const preBuildDeposit = async () => {
+    if (!signer) throw new Error("Wallet disconnected. Reconnect!");
     const fromAddresses = await signer.getAddresses();
     const daoTx: { tx: CKBTransaction | null; fee: number } =
       await buildDepositTransaction(fromAddresses[0], BigInt(depositAmount));
@@ -342,6 +342,7 @@ const App = () => {
    * Built withdraw transaction for tx submission in the next step.
    */
   const preBuildWithdraw = async (depositCell: DaoCell) => {
+    if (!signer) throw new Error("Wallet disconnected. Reconnect!");
     const fromAddresses = await signer.getAddresses();
     const daoTx: { tx: CKBTransaction | null; fee: number } =
       await buildWithdrawTransaction(fromAddresses[0], depositCell);
@@ -358,6 +359,7 @@ const App = () => {
    * Built unlock transaction for tx submission in the next step.
    */
   const preBuildUnlock = async (withdrawalCell: DaoCell) => {
+    if (!signer) throw new Error("Wallet disconnected. Reconnect!");
     const fromAddresses = await signer.getAddresses();
     const daoTx: { tx: CKBTransaction | null; fee: number } =
       await buildUnlockTransaction(fromAddresses[0], withdrawalCell);
@@ -417,6 +419,7 @@ const App = () => {
     try {
       if (!currentTx.tx) throw new Error("Transaction building has failed");
 
+      if (!signer) throw new Error("Wallet disconnected. Reconnect!");
       const txid = await signer.sendTransaction(currentTx.tx);
       enqueueSnackbar(`Transaction Sent: ${txid}`, { variant: "success" });
       setIsWaitingTxConfirm(true);
@@ -461,6 +464,7 @@ const App = () => {
     try {
       if (!currentTx.tx) throw new Error("Transaction building has failed");
 
+      if (!signer) throw new Error("Wallet disconnected. Reconnect!");
       const txid = await signer.sendTransaction(currentTx.tx);
       enqueueSnackbar(`Transaction Sent: ${txid}`, { variant: "success" });
       setIsWaitingTxConfirm(true);
@@ -505,6 +509,7 @@ const App = () => {
     try {
       if (!currentTx.tx) throw new Error("Transaction building has failed");
 
+      if (!signer) throw new Error("Wallet disconnected. Reconnect!");
       const txid = await signer.sendTransaction(currentTx.tx);
       enqueueSnackbar(`Transaction Sent: ${txid}`, { variant: "success" });
       setIsWaitingTxConfirm(true);
@@ -676,8 +681,8 @@ const App = () => {
    * Client control. Effective when deployment only
    */
   React.useEffect(() => {
-    if (ISMAINNET) setClient(new ClientPublicMainnet());
-    else setClient(new ClientPublicTestnet());
+    if (ISMAINNET) setClient(new ccc.ClientPublicMainnet());
+    else setClient(new ccc.ClientPublicTestnet());
   }, [setClient, ISMAINNET]);
 
   /**

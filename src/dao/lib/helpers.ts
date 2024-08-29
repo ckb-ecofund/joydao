@@ -17,7 +17,7 @@ import {
   JOYID_SIGNATURE_PLACEHOLDER_DEFAULT,
   DAO_MINIMUM_CAPACITY,
   NETWORK_CONFIG,
-} from "../config";
+} from "../../config";
 import { addressToScript, TransactionSkeletonType } from "@ckb-lumos/helpers";
 import { CKBIndexerQueryOptions } from "@ckb-lumos/ckb-indexer/src/type";
 import { CellCollector, Indexer } from "@ckb-lumos/ckb-indexer";
@@ -286,7 +286,7 @@ function parseEpochCompatible(epoch: BIish): {
  * @param cell - The deposit/withdraw cell.
  * @param isDeposit - Is this a deposit or a withdraw?
  * @param tipEpoch - The CKB blockchain tip epoch
- * @returns none.
+ * @returns A CKB raw transaction.
  */
 export const enrichDaoCellInfo = async (
   cell: DaoCell,
