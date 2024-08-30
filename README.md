@@ -60,7 +60,7 @@ By following these steps, you can customize and deploy your own instance of Nerv
 
 - **Nerv DAO Mainnet**: https://www.nervdao.com/
 - **Nerv DAO Testnet**: https://test.nervdao.com/
-- **CCC Demo**: https://ckbccc-demo.vercel.app/
+- **CCC Demo**: https://app.ckbccc.com/
 - **Nervos DAO Overview**: [Understanding the Nervos DAO and Cell Model](https://medium.com/nervosnetwork/understanding-the-nervos-dao-and-cell-model-d68f38272c24)
 
 If you have any feedback or suggestions for improving Nerv DAO, please share them in the issue section on our GitHub or join the CKB dev chat on Discord to connect with us: https://discord.gg/nVWSNeqn
