@@ -1,145 +1,66 @@
-# Abstract
+## **Nerv DAO**
 
-Nervos DAO users have several options to protect their investments from CKB inflation through various software, hardware, and passkey wallets.
+### **What is Nerv DAO**
+Nerv DAO is an advanced implementation of the Nervos DAO, designed to deliver a more user-friendly and accessible experience for CKB holders. By leveraging the latest wallet abstraction technologies through the Common Chain Connector (CCC), Nerv DAO provides a seamless interface that integrates with various wallets. This modern tool simplifies the process of managing deposits and withdrawals in the Nervos DAO, allowing CKB holders to protect their investments while earning rewards with ease.
+<img width="1512" alt="image" src="https://github.com/user-attachments/assets/d183853c-f557-4f1f-bd00-89732f3c1ee1">
 
-Neuron is the first-generation wallet on CKB and is considered the safest software wallet. However, it is a full-node wallet, making it quite heavy. PW Wallet offers MetaMask compatibility but is no longer maintained. JoyID passkey wallet stands out for its well-balanced features, making it a potential standard for protecting CKB for decades to come, although it currently does not support Nervos DAO users.
 
-Thanks to the incredible support from the CKB community, especially the Common Chain Connector (CCC), a special software enabling ‘wallet abstraction’ on CKB, we can now envision a universal wallet-interfaced application. This application will cater to users from MetaMask, Brave, OKX, Unisat, Fantom wallets, and even passkey wallets like JoyID. My goal is to build a convenient, versatile user interface and a secure option for CKB users to utilize Nervos DAO.
+### **What Nerv DAO Has Accomplished So Far**
 
-To those who are not familiar with Nervos DAO, check https://medium.com/nervosnetwork/understanding-the-nervos-dao-and-cell-model-d68f38272c24
+Currently, Nerv DAO has successfully built and deployed a platform that integrates wallet abstraction with a wide range of wallets, including MetaMask, Unisat, OKX Wallet, and passkey wallets like JoyID. This functionality allows users from different blockchain ecosystems to easily interact with the Nervos DAO, making it a versatile and accessible solution for protecting CKBytes. Nerv DAO has also ensured that its interface is user-friendly and secure, making it simpler for users to manage their DAO interactions while safeguarding their investments.
 
-# Deployments
+### **What’s Next for Nerv DAO**
 
-Mainnet: https://www.nervdao.com/
+Looking ahead, Nerv DAO is set to introduce several new features and enhancements to further benefit the CKB community:
 
-Testnet: https://test.nervdao.com/
+- **UI Optimization**: Ongoing improvements to the user interface will ensure that Nerv DAO remains intuitive and accessible, even as new features are added. The goal is to provide a seamless experience for both new and experienced users.
+- **NFT Credentials**: Nerv DAO is exploring the integration of NFT credentials as a way to provide users with unique, verifiable identities and access rights within the platform. These NFT credentials could be used to represent user achievements, participation in specific events, or even governance rights within the DAO ecosystem. This feature aims to enhance user engagement and bring an additional layer of security and personalization to the Nerv DAO experience.
+- **Expanded Wallet Compatibility**: Nerv DAO will continue to expand its compatibility with more wallets across various blockchain ecosystems, ensuring that users have a broad choice of platforms to interact with the Nervos DAO.
 
-<img width="770" alt="Screenshot 2024-08-11 at 13 26 49" src="https://github.com/user-attachments/assets/4cc31bd5-dd65-49fd-826b-26ab8f1725be">
+### **How to Use Nerv DAO**
 
-withdraw/unlock buttons are equipped with cycle status bar wraping around the button itself.
+To use Nerv DAO, follow these simple steps:
 
-# In case you want to verify NervDao's integrity
-All you need to verify is that the output cells - being created - has **your lock script** and the **Nervos DAO type script** on it (in deposit and withdrawal). And that's it. As long as that's ensured, your funds will still be yours and there'll always be a way to spend it.
+1. **Visit the Platform**: Go to [Nerv DAO Mainnet](https://www.nervdao.com/) to access the platform.
+2. **Connect Your Wallet**: Nerv DAO supports multiple wallets like MetaMask, OKX Wallet, and JoyID. Simply choose your preferred wallet and connect it to Nerv DAO.
+3. **Deposit CKBytes**: After connecting your wallet, you can deposit CKBytes into the Nervos DAO by following the on-screen instructions. The platform will guide you through the process of locking your CKBytes in a "Nervos DAO" cell.
+4. **Manage Your Deposits**: Nerv DAO allows you to manage your deposits and track your rewards within the platform. You can also withdraw your CKBytes when needed by following the provided steps.
+5. **Earn Rewards**: Once your CKBytes are locked in the Nervos DAO, you will start earning rewards based on the amount deposited.
 
-#### deposit transaction
+### **How to Deploy Nerv DAO**
 
-```json
-{
-    "version": "0x0",
-    "cellDeps": ...,
-    "headerDeps": ...,
-    "inputs": ...,
-    "outputs": [
-        {
-            "capacity": "0x7c0d5ad00",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            },
-            "type": {
-                "codeHash": "0x82d76d1b75fe2fd9a27dfbaa65a039221a380d76c926f378d3f81cf3e7e13f2e",
-                "hashType": "type",
-                "args": "0x"
-            }
-        },
-        {
-            "capacity": "0x4fa0c8b5d5",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            }
-        }
-    ],
-    "outputsData": ...,
-    "witnesses": ...
-}
-```
+If you are a developer and would like to deploy Nerv DAO yourself, follow these steps:
 
-In the above NervDAO example transaction that you can see in joyID signing page, "lock" is short for Lock Script and "type" is short for Type Script. Take a look at the output cells. Here in this example we have 2 outputs.
+1. **Clone the Repository**: Download the code for Nerv DAO from the repository.
+2. **Install Dependencies**: Navigate to the project directory and run the following commands to install the necessary packages:
+    
+    ```bash
+    npm install
+    
+    ```
+    
+3. **Build the Project**: After installing dependencies, build the project with:
+    
+    ```bash
+    npm run build
+    
+    ```
+    
+4. **Run the Development Server**: Finally, start the development server in development mode:
+    
+    ```bash
+    npm run dev
+    
+    ```
+    
 
-- step1: go to : https://explorer.nervos.org/tools/address-conversion
-- step2: in tab Address To Script, paste your joyId address and you'll see a data structure {codeHash, hashType, Args}
-- step3: compare it to the trie in each output "lock". If matched, output cells are YOURS
+By following these steps, you can customize and deploy your own instance of Nerv DAO, making it possible to explore and contribute to its development.
 
-You'll notice that the second cell doesn't have a Type Script, that is because it's a change in a UTXO transaction and it doesn't belong to any "type" of smart contract.
+### **Relevant Links**
 
-#### withdraw
+- **Nerv DAO Mainnet**: https://www.nervdao.com/
+- **Nerv DAO Testnet**: https://test.nervdao.com/
+- **CCC Demo**: https://app.ckbccc.com/
+- **Nervos DAO Overview**: [Understanding the Nervos DAO and Cell Model](https://medium.com/nervosnetwork/understanding-the-nervos-dao-and-cell-model-d68f38272c24)
 
-```json
-{
-    "version": ...,
-    "cellDeps": ...,
-    "inputs": ...,
-    "outputs": [
-        {
-            "capacity": "0xcec0ecb00",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            },
-            "type": {
-                "codeHash": "0x82d76d1b75fe2fd9a27dfbaa65a039221a380d76c926f378d3f81cf3e7e13f2e",
-                "hashType": "type",
-                "args": "0x"
-            }
-        },
-        {
-            "capacity": "0x57619e62d5",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            }
-        }
-    ],
-    "outputsData": ...,
-    "witnesses": ...
-}
-```
-
-The procedure to verify your ownership is similar to that of the deposit transaction.
-
-#### unlock
-
-```json
-{
-    "version": "0x0",
-    "cellDeps": ...,
-    "headerDeps": ...,
-    "inputs": [
-        {
-            "since": "0x20070800f500231e",
-            "previousOutput": {
-                "txHash": "0xc25dbce7c11f68c060a5a25bef445d4cf97cf763a90502880b13ca2378ee7536",
-                "index": "0x0"
-            }
-        }
-    ],
-    "outputs": [
-        {
-            "capacity": "0x26be340f0",
-            "lock": {
-                "codeHash": "0xd23761b364210735c19c60561d213fb3beae2fd6172743719eff6920e020baac",
-                "hashType": "type",
-                "args": "0x00018d6961e236ec3f236b6239721015cd099dee27d7"
-            }
-        }
-    ],
-    "outputsData": [
-        "0x"
-    ],
-    "witnesses": [
-        "0x1c00000010000000100000001c000000080000000000000000000000"
-    ]
-}
-```
-
-This is DAO unlocking transaction. It doesn't have any typescript because you're opting out of the Nervos DAO to get your CKB back. And the procedure to verify your ownership is similar to that of the deposit transaction.
-
-# Starting project
-    1. `npm install`
-    2. `npm run build`
-    3. `npm run start`
+If you have any feedback or suggestions for improving Nerv DAO, please share them in the issue section on our GitHub or join the CKB dev chat on Discord to connect with us: https://discord.gg/nVWSNeqn
