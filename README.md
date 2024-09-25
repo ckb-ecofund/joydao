@@ -2,7 +2,8 @@
 
 ### **What is Nerv DAO**
 Nerv DAO is an advanced implementation of the Nervos DAO, designed to deliver a more user-friendly and accessible experience for CKB holders. By leveraging the latest wallet abstraction technologies through the Common Chain Connector (CCC), Nerv DAO provides a seamless interface that integrates with various wallets. This modern tool simplifies the process of managing deposits and withdrawals in the Nervos DAO, allowing CKB holders to protect their investments while earning rewards with ease.
-<img width="1512" alt="image" src="https://github.com/user-attachments/assets/d183853c-f557-4f1f-bd00-89732f3c1ee1">
+<img width="1505" alt="image" src="https://github.com/user-attachments/assets/8f64bf2a-0fb6-43c7-92ee-73d77043e9cc">
+
 
 
 ### **What Nerv DAO Has Accomplished So Far**
@@ -26,6 +27,18 @@ To use Nerv DAO, follow these simple steps:
 3. **Deposit CKBytes**: After connecting your wallet, you can deposit CKBytes into the Nervos DAO by following the on-screen instructions. The platform will guide you through the process of locking your CKBytes in a "Nervos DAO" cell.
 4. **Manage Your Deposits**: Nerv DAO allows you to manage your deposits and track your rewards within the platform. You can also withdraw your CKBytes when needed by following the provided steps.
 5. **Earn Rewards**: Once your CKBytes are locked in the Nervos DAO, you will start earning rewards based on the amount deposited.
+6. **Redeem CKBytes**: If you want to stop staking and get your CKBytes back, you can Redeem your Ckbytes(But a locking period will be applied to determine when exactly the tokens can be withdrawed)
+
+
+### ** How does the NervDAO/NervosDAO Annual Yield Rate (APY) work?
+When you deposit CKB in the NervosDAO, those funds are locked in a smart contract for at least ~1 month and will earn interest immediately.
+The Annual Yield Rate (APY) automatically compounds, therefore, you do not need to withdraw and redeposit funds at the end of the month to gain compounding interest.
+Since NervosDAO is not staking in the traditional sense, but acts as an inflation shelter, the earned interest is automatically compounded upon withdrawing funds.
+The smart contract that locks your funds into the NervosDAO calculates the following:
+When you deposited the funds in the Nervos DAO.
+When the withdrawal request was made.
+Calculate the rewards and compounding interest for the period.
+
 
 ### **How to Deploy Nerv DAO**
 
@@ -62,5 +75,5 @@ By following these steps, you can customize and deploy your own instance of Nerv
 - **Nerv DAO Testnet**: https://test.nervdao.com/
 - **CCC Demo**: https://app.ckbccc.com/
 - **Nervos DAO Overview**: [Understanding the Nervos DAO and Cell Model](https://medium.com/nervosnetwork/understanding-the-nervos-dao-and-cell-model-d68f38272c24)
-
+- **Deposit and Withdraw in Nervos DAO**: [Deposit and Withdraw in Nervos DAO](https://docs.ckb.dev/docs/rfcs/0023-dao-deposit-withdraw/0023-dao-deposit-withdraw)
 If you have any feedback or suggestions for improving Nerv DAO, please share them in the issue section on our GitHub or join the CKB dev chat on Discord to connect with us: https://discord.gg/nVWSNeqn
